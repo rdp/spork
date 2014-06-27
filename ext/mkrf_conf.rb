@@ -4,13 +4,6 @@ require 'rubygems/dependency_installer.rb'
 STDERR.puts "Actually, there aren't any native extensions. I'm just dynamically installing dependencies based off of your operating system"
 inst = Gem::DependencyInstaller.new
 
-# this will fail if rake isn't installed.
-begin
-  inst.install "rake"
-rescue
-  # oh well.  Let it fail later.
-end 
-
 if RUBY_PLATFORM =~ /mswin|mingw/ and RUBY_VERSION < '1.9.1'
   STDERR.puts "installing windows dependencies"
   begin
